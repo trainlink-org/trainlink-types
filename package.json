@@ -1,0 +1,36 @@
+{
+  "name": "trainlink-types",
+  "version": "0.0.0",
+  "description": "Typescript types used by the API",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --module commonjs",
+    "preversion": "npm run build",
+    "postversion": "git push --follow-tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trainlink-org/trainlink-types.git"
+  },
+  "keywords": [
+    "trainlink",
+    "trainlink-api",
+    "dcc",
+    "dcc-ex",
+    "railway"
+  ],
+  "author": "TrainLink Organisation",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/trainlink-org/trainlink-types/issues"
+  },
+  "homepage": "https://github.com/trainlink-org/trainlink-types#readme",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
+}
