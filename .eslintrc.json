@@ -24,6 +24,12 @@
     "ignorePatterns": ["dist/"],
     "rules": {
         "no-else-return":"error",
-        "@typescript-eslint/naming-convention": "error"
+        "no-duplicate-imports": "error",
+        "eqeqeq": ["error", "smart"],
+        "no-console": "warn",
+        "no-magic-numbers": ["warn", {"enforceConst": true}],
+        "@typescript-eslint/naming-convention": "error",
+        "@typescript-eslint/consistent-type-imports": "error",
+        "@typescript-eslint/no-require-imports": "error"
     }
 }

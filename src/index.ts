@@ -1,4 +1,4 @@
-export {ServerToClientEvents} from './websocketEvents';
+export { ServerToClientEvents } from './websocketEvents';
 
 /**
  * Describes the direction of a Loco
@@ -6,7 +6,7 @@ export {ServerToClientEvents} from './websocketEvents';
 export enum Direction {
     forward = 'Forward',
     stopped = 'Stopped',
-    reverse = 'Reverse'
+    Reverse = 'Reverse',
 }
 
 export enum AutomationErrorType {
@@ -15,11 +15,9 @@ export enum AutomationErrorType {
 }
 
 export class AutomationError {
-    
     readonly type: AutomationErrorType;
     readonly message: string;
     readonly location?: string;
-
 
     constructor(type: AutomationErrorType, msg: string, location?: string) {
         this.type = type;
@@ -81,104 +79,108 @@ export type JsonString = string;
  * Base type for a hardware adapter.
  */
 export interface HardwareAdapter {
-    locoSetSpeed(address: number, speed:number, direction:Direction): Promise<void>,
-    locoEstop(address: number): Promise<void>,
-    turnoutSet(id: number, state: TurnoutState): Promise<void>,
+    locoSetSpeed(
+        address: number,
+        speed: number,
+        direction: Direction
+    ): Promise<void>;
+    locoEstop(address: number): Promise<void>;
+    turnoutSet(id: number, state: TurnoutState): Promise<void>;
 }
 
 export enum AutomationType {
     sequence = 'Sequence',
     route = 'Route',
     automation = 'Automation',
-    eventHandler = 'Event Handler'
+    eventHandler = 'Event Handler',
 }
 
 export enum EventHandlerType {
     turnout = 'Turnout',
-    none = 'None'
+    none = 'None',
 }
 
 export interface AutomationScriptClient {
-    name: string,
-    id: number,
-    description: string,
-    type: AutomationType,
-    source: string,
+    name: string;
+    id: number;
+    description: string;
+    type: AutomationType;
+    source: string;
 }
 
 export interface RunningAutomationClient {
-    name: string,
-    description: string,
-    type: AutomationType,
-    status: AutomationStatus,
-    locoAddress?: number,
-    pid: PID
+    name: string;
+    description: string;
+    type: AutomationType;
+    status: AutomationStatus;
+    locoAddress?: number;
+    pid: PID;
 }
 
 export type PID = string;
 
 export enum AutomationStatus {
     running = 'Running',
-    paused = 'Paused'
+    paused = 'Paused',
 }
 
 export enum TurnoutState {
     closed = 'Closed',
-    thrown = 'Thrown'
+    thrown = 'Thrown',
 }
 
 export interface TurnoutPacket {
-    turnouts: Turnout[],
-    links: TurnoutLink[],
-    destinations: Destination[],
+    turnouts: Turnout[];
+    links: TurnoutLink[];
+    destinations: Destination[];
 }
 
 export interface MapPoint {
-    id: number,
-    coordinate: Coordinate,
+    id: number;
+    coordinate: Coordinate;
 }
 
 export interface Turnout extends MapPoint {
-    name: string,
-    state: TurnoutState,
-    primaryDirection: number,
-    secondaryDirection: number,
-    connections: number[],
+    name: string;
+    state: TurnoutState;
+    primaryDirection: number;
+    secondaryDirection: number;
+    connections: number[];
 }
 
 export interface TurnoutLink {
-    id: number,
-    length: number,
-    start: number, //Turnout.id || Destination.id
-    end: number, //Turnout.id
-    points: Coordinate[],
-    startActive: boolean,
-    endActive: boolean,
+    id: number;
+    length: number;
+    start: number; //Turnout.id || Destination.id
+    end: number; //Turnout.id
+    points: Coordinate[];
+    startActive: boolean;
+    endActive: boolean;
 }
 
 export interface Destination extends MapPoint {
     /** A negative id for the destination (Not exposed to user) */
-    id: number, // Should always be -ve
-    name: string,
-    description: string,
-    connections: number[],
+    id: number; // Should always be -ve
+    name: string;
+    description: string;
+    connections: number[];
 }
 
-export interface Coordinate{
-    x: number,
-    y: number,
+export interface Coordinate {
+    x: number;
+    y: number;
 }
 
 export interface RouteObject {
-    start: Destination,
-    turnouts: CurrentTurnoutState[],
-    links: TurnoutLink[],
-    end: Destination
+    start: Destination;
+    turnouts: CurrentTurnoutState[];
+    links: TurnoutLink[];
+    end: Destination;
 }
 
 export interface CurrentTurnoutState {
-    id: number,
-    state: TurnoutState,
+    id: number;
+    state: TurnoutState;
 }
 
 /**
