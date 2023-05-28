@@ -7,7 +7,8 @@
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "plugin:@typescript-eslint/strict"
+        "plugin:@typescript-eslint/strict",
+        "prettier"
     ],
     "overrides": [
     ],
@@ -20,13 +21,7 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "indent": ["error", 4],
-        "linebreak-style": ["error", "unix"],
-        "quotes": [
-            "error", "single"],
-        "semi": ["error", "always"],
         "no-else-return":"error",
-        "@typescript-eslint/naming-convention": "error",
-        "no-trailing-spaces": ["warn", {"skipBlankLines": true}],
+        "@typescript-eslint/naming-convention": "error"
     }
 }
