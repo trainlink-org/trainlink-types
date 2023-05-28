@@ -6,7 +6,7 @@ export { ServerToClientEvents } from './websocketEvents';
 export enum Direction {
     forward = 'Forward',
     stopped = 'Stopped',
-    Reverse = 'Reverse',
+    reverse = 'Reverse',
 }
 
 export enum AutomationErrorType {

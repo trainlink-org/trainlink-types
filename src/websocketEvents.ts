@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-import {
+import type {
     JsonString,
     TurnoutPacket,
     AutomationScriptClient,
@@ -14,6 +13,7 @@ import {
     Coordinate,
 } from './index';
 
+/* eslint-disable @typescript-eslint/naming-convention */
 // prettier-ignore
 export interface ServerToClientEvents {
     'metadata/handshake': (
@@ -166,3 +166,4 @@ export interface ClientToServerEvents {
         coordinate: Coordinate
     ) => void;
 }
+/* eslint-enable @typescript-eslint/naming-convention */
