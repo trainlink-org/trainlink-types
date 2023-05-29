@@ -1,0 +1,2 @@
+#Used for CI where rules can't be disabled per file inline
+src/webSocketEvents.ts
