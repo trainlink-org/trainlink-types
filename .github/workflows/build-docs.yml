@@ -2,7 +2,7 @@ name: Build Documentation
 
 on:
   release:
-    types: [created]
+    types: [released]
   workflow_dispatch:
 
 jobs:
