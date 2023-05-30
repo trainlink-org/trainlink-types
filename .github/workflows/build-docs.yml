@@ -33,3 +33,4 @@ jobs:
         with:
           commit_message: Build Documentation
           commit_options: --gpg-sign
+          commit_user_email: matthew.vandevyver@outlook.com
