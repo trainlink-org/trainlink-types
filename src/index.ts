@@ -1,4 +1,4 @@
-export { ServerToClientEvents } from './websocketEvents';
+export * from './websocketEvents';
 
 /**
  * Describes the direction of a Loco
