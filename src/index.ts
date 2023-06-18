@@ -86,6 +86,7 @@ export interface HardwareAdapter {
     ): Promise<void>;
     locoEstop(address: number): Promise<void>;
     turnoutSet(id: number, state: TurnoutState): Promise<void>;
+    trackPowerSet(state: boolean): Promise<void>;
 }
 
 export enum AutomationType {
