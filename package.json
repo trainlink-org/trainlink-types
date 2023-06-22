@@ -1,6 +1,6 @@
 {
   "name": "@trainlink-org/trainlink-types",
-  "version": "0.0.1-alpha.4",
+  "version": "0.0.1-alpha.5",
   "description": "Typescript types used by the API",
   "main": "dist/index.js",
   "files": [
