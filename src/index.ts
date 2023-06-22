@@ -1,4 +1,5 @@
 export * from './websocketEvents';
+export * from './loco';
 
 /**
  * Describes the direction of a Loco
