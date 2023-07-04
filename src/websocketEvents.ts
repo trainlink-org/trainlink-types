@@ -17,7 +17,9 @@ import type {
 // prettier-ignore
 export interface ServerToClientEvents {
     'metadata/handshake': (
-        appName: string, version: string
+        name: string, 
+        productName: string, 
+        version: string
     ) => void;
     'metadata/initialState/trackPower': (
         state: boolean
@@ -82,12 +84,19 @@ export interface ServerToClientEvents {
         newAddress: number,
         name: string
     ) => void;
-    'config/locoDeleted': (address: number) => void;
+    'config/locoDeleted': (
+        address: number
+    ) => void;
+    'hardware/driverChanged': (
+        driver: string
+    ) => void;
 }
 
 // prettier-ignore
 export interface ClientToServerEvents {
-    'metadata/handshake': (appName: string,
+    'metadata/handshake': (
+        name: string,
+        productName: string,
         version: string
     ) => void;
     'automation/fileUpload': (
@@ -164,6 +173,9 @@ export interface ClientToServerEvents {
     'config/routes/changeObjectCoordinate': (
         id: number,
         coordinate: Coordinate
+    ) => void;
+    'hardware/setDriver': (
+        driver: string
     ) => void;
 }
 /* eslint-enable @typescript-eslint/naming-convention */
