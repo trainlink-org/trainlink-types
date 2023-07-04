@@ -175,7 +175,8 @@ export interface ClientToServerEvents {
         coordinate: Coordinate
     ) => void;
     'hardware/setDriver': (
-        driver: string
+        driver: string,
+        address: string,
     ) => void;
 }
 /* eslint-enable @typescript-eslint/naming-convention */
