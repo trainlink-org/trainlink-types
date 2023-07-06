@@ -11,6 +11,7 @@ import type {
     PID,
     MapPoint,
     Coordinate,
+    HardwareDevice,
 } from './index';
 
 /* eslint-disable @typescript-eslint/naming-convention */
@@ -29,6 +30,9 @@ export interface ServerToClientEvents {
     ) => void;
     'metadata/initialState/turnouts': (
         packet: TurnoutPacket
+    ) => void;
+    'metadata/availableDrivers': (
+        drivers: string[]
     ) => void;
     'automation/fetchAllResponse': (
         automations: AutomationScriptClient[]
@@ -88,7 +92,14 @@ export interface ServerToClientEvents {
         address: number
     ) => void;
     'hardware/driverChanged': (
-        driver: string
+        driver: string,
+        driverMsg: string
+    ) => void;
+    'hardware/availableDevices': (
+        devices: HardwareDevice[]
+    ) => void;
+    'hardware/newActiveDevice': (
+        device: HardwareDevice
     ) => void;
 }
 
@@ -177,6 +188,10 @@ export interface ClientToServerEvents {
     'hardware/setDriver': (
         driver: string,
         address: string,
+    ) => void;
+    'hardware/getDevices': () => void
+    'hardware/setDevice': (
+        device: HardwareDevice
     ) => void;
 }
 /* eslint-enable @typescript-eslint/naming-convention */

@@ -196,3 +196,11 @@ export function isTurnout(object: unknown): object is Turnout {
     }
     return false;
 }
+
+export interface HardwareDevice {
+    name: string;
+    driver: string;
+    address?: string;
+    manufacturer?: string;
+    serialNumber?: string;
+}
