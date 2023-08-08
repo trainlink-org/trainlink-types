@@ -83,7 +83,7 @@ export interface HardwareAdapter {
     locoSetSpeed(
         address: number,
         speed: number,
-        direction: Direction
+        direction: Direction,
     ): Promise<void>;
     locoEstop(address: number): Promise<void>;
     turnoutSet(id: number, state: TurnoutState): Promise<void>;
@@ -148,6 +148,7 @@ export interface Turnout extends MapPoint {
     primaryDirection: number;
     secondaryDirection: number;
     connections: number[];
+    active: boolean;
 }
 
 export interface TurnoutLink {
@@ -166,6 +167,7 @@ export interface Destination extends MapPoint {
     name: string;
     description: string;
     connections: number[];
+    active: boolean;
 }
 
 export interface Coordinate {
@@ -193,6 +195,20 @@ export interface CurrentTurnoutState {
 export function isTurnout(object: unknown): object is Turnout {
     if (typeof object === 'object' && object) {
         return 'primaryDirection' in object && 'secondaryDirection' in object;
+    }
+    return false;
+}
+
+/**
+ * Checks if an object has the correct properties to be a {@link Destination}
+ * @param object Object to check
+ * @returns True or false
+ */
+export function isDestination(object: unknown): object is Destination {
+    if (typeof object === 'object' && object) {
+        return (
+            !('primaryDirection' in object) && !('secondaryDirection' in object)
+        );
     }
     return false;
 }

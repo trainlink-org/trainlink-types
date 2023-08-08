@@ -12,6 +12,7 @@ import type {
     MapPoint,
     Coordinate,
     HardwareDevice,
+    TurnoutLink,
 } from './index';
 
 /* eslint-disable @typescript-eslint/naming-convention */
@@ -63,7 +64,7 @@ export interface ServerToClientEvents {
         state: boolean,
         socketId: string
     ) => void;
-    'routes/turnoutUpdate': (
+    'routes/turnoutStateUpdate': (
         identifier: number,
         state: TurnoutState
     ) => void;
@@ -79,6 +80,12 @@ export interface ServerToClientEvents {
         destinations: number[],
         turnouts: number[],
         links: number[]
+    ) => void;
+    'routes/mapPointUpdate' : (
+        object: MapPoint
+    ) => void;
+    'routes/turnoutLinkUpdate' : (
+        object: TurnoutLink
     ) => void;
     'config/newLocoAdded': (
         loco: JsonString
