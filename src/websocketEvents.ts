@@ -64,7 +64,7 @@ export interface ServerToClientEvents {
         state: boolean,
         socketId: string
     ) => void;
-    'routes/turnoutStateUpdate': (
+    'routes/turnoutUpdate': (
         identifier: number,
         state: TurnoutState
     ) => void;

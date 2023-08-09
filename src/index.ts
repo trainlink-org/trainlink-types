@@ -83,7 +83,7 @@ export interface HardwareAdapter {
     locoSetSpeed(
         address: number,
         speed: number,
-        direction: Direction,
+        direction: Direction
     ): Promise<void>;
     locoEstop(address: number): Promise<void>;
     turnoutSet(id: number, state: TurnoutState): Promise<void>;
@@ -148,7 +148,6 @@ export interface Turnout extends MapPoint {
     primaryDirection: number;
     secondaryDirection: number;
     connections: number[];
-    active: boolean;
 }
 
 export interface TurnoutLink {
@@ -167,7 +166,6 @@ export interface Destination extends MapPoint {
     name: string;
     description: string;
     connections: number[];
-    active: boolean;
 }
 
 export interface Coordinate {
