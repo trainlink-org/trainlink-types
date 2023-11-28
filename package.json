@@ -39,7 +39,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-jsdoc": "^46.2.6",
     "prettier": "^3.0.0",
-    "typedoc": "^0.24.7",
+    "typedoc": "^0.25.4",
     "typescript": "^5.0.4"
   }
 }
