@@ -142,12 +142,18 @@ export interface MapPoint {
     coordinate: Coordinate;
 }
 
+export interface Node extends MapPoint {
+    name: string;
+    type: string;
+    state: TurnoutState;
+}
+
 export interface Turnout extends MapPoint {
     name: string;
     state: TurnoutState;
     primaryDirection: number;
     secondaryDirection: number;
-    connections: number[];
+    // connections: number[];
 }
 
 export interface TurnoutLink {
@@ -162,10 +168,10 @@ export interface TurnoutLink {
 
 export interface Destination extends MapPoint {
     /** A negative id for the destination (Not exposed to user) */
-    id: number; // Should always be -ve
+    // id: number; // Should always be -ve
     name: string;
     description: string;
-    connections: number[];
+    // connections: number[];
 }
 
 export interface Coordinate {
@@ -178,6 +184,13 @@ export interface RouteObject {
     turnouts: CurrentTurnoutState[];
     links: TurnoutLink[];
     end: Destination;
+}
+
+export interface RouteObjectNew {
+    start: Node;
+    nodes: Node[];
+    end: Node;
+    links: TurnoutLink;
 }
 
 export interface CurrentTurnoutState {
