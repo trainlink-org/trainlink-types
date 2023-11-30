@@ -153,6 +153,7 @@ export interface Turnout extends MapPoint {
     state: TurnoutState;
     primaryDirection: number;
     secondaryDirection: number;
+    usedInRoute: boolean;
     // connections: number[];
 }
 
@@ -164,6 +165,7 @@ export interface TurnoutLink {
     points: Coordinate[];
     startActive: boolean;
     endActive: boolean;
+    usedInRoute: boolean;
 }
 
 export interface Destination extends MapPoint {
@@ -171,6 +173,7 @@ export interface Destination extends MapPoint {
     // id: number; // Should always be -ve
     name: string;
     description: string;
+    usedInRoute: boolean;
     // connections: number[];
 }
 
