@@ -47,18 +47,18 @@ export interface ServerToClientEvents {
     'throttle/speedUpdate': (
         identifier: LocoIdentifier,
         speed: number,
-        socketId: string,
-        throttleNum: number
+        socketID: string,
     ) => void;
     'throttle/directionUpdate': (
         identifier: LocoIdentifier,
         direction: Direction,
-        id?: string
+        socketID: string
     ) => void;
     'throttle/functionUpdate': (
         identifier: LocoIdentifier,
         functionNum: number,
-        state: boolean
+        state: boolean,
+        socketID: string
     ) => void;
     'throttle/trackPowerUpdate': (
         state: boolean,
@@ -148,11 +148,11 @@ export interface ClientToServerEvents {
     'throttle/setSpeed': (
         identifier: LocoIdentifier,
         speed: number,
-        throttleID: number
     ) => void;
-    'throttle/switchDirection': (
-        identifier: LocoIdentifier
-    ) => void;
+    // 'throttle/switchDirection': (
+    //     identifier: LocoIdentifier,
+    //     throttleID: number
+    // ) => void;
     'throttle/setDirection': (
         identifier: LocoIdentifier,
         direction: Direction
